@@ -1,10 +1,11 @@
 const net = require("net");
+const { IP, PORT, } = require("./constants")
 
 // establishes a connection with the game server
 const connect = function() {
   const conn = net.createConnection({
-    host: "165.227.47.243",
-    port: 50541,
+    host: IP,
+    port: PORT,
   });
 
   // interpret incoming data as text
@@ -13,7 +14,7 @@ const connect = function() {
   //on connection to server, display welcome message and send server name of my snek
   conn.on("connect", () => {
     console.log("Your soul has been transported into a video game snek.\nIf your snek dies, you die.");
-    conn.write("Name: JG!:");
+    conn.write("Name: JG!");
   });
 
   //console log incoming data received from server
