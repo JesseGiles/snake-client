@@ -1,4 +1,5 @@
 const net = require("net");
+const setupInput = require("./play");
 
 // establishes a connection with the game server
 const connect = function() {
@@ -16,7 +17,7 @@ const connect = function() {
     conn.write("Name: JG!");
   });
 
-  //also on connection, move snek different directions on timers
+  //also on connection, move snek in a direction after a set timeout
   conn.on("connect", (data) => {
 
     setTimeout(() => {
