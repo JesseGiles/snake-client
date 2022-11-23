@@ -1,25 +1,9 @@
 //const net = require("net");
-const { connect } = require("./client");
+const { connect } = require("./client"); //get connect function from client.js
+const setupInput = require("./input"); //get setupInput function from input.js
 
-// setup interface to handle user input from stdin
-const setupInput = function () {
-  const stdin = process.stdin;
-  stdin.setRawMode(true);
-  stdin.setEncoding("utf8");
-  stdin.resume();
-
-  stdin.on("data", handleUserInput); //event listener triggers function handleUserInput when input is received by client
-
-  return stdin;
-};
-
-const handleUserInput = function (key) {
-  if (key === '\u0003') {
-    console.log("Quitter.");
-    process.exit();
-  }
-};
+console.log("Also Connecting ..."); //doesnt seem to do anything, this works from client.js
+connect();
 
 setupInput();
 
-//module.exports = { setupInput }

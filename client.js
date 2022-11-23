@@ -1,10 +1,10 @@
 const net = require("net");
-const setupInput = require("./play");
+//const setupInput = require("./play");
 
 // establishes a connection with the game server
 const connect = function() {
   const conn = net.createConnection({
-    host: "localhost",
+    host: "165.227.47.243",
     port: 50541,
   });
 
@@ -12,19 +12,19 @@ const connect = function() {
   conn.setEncoding("utf8");
 
   //on connection to server, display welcome message and send server name of my snek
-  conn.on("connect", (data) => {
+  conn.on("connect", () => {
     console.log("Your soul has been transported into a video game snek.\nIf your snek dies, you die.");
-    conn.write("Name: JG!");
+    conn.write("Name: JG!:");
   });
 
   //also on connection, move snek in a direction after a set timeout
-  conn.on("connect", (data) => {
+  conn.on("connect", () => {
 
     setTimeout(() => {
       conn.write("Move: up");
     }, 1000);
 
-  })
+  });
 
   //console log incoming data received from server
   conn.on("data", (data) => {
