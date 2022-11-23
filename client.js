@@ -1,5 +1,4 @@
 const net = require("net");
-//const setupInput = require("./play");
 
 // establishes a connection with the game server
 const connect = function() {
@@ -17,32 +16,16 @@ const connect = function() {
     conn.write("Name: JG!:");
   });
 
-  //also on connection, move snek in a direction after a set timeout
-  conn.on("connect", () => {
-
-    setTimeout(() => {
-      conn.write("Move: up");
-    }, 1000);
-
-  });
-
   //console log incoming data received from server
   conn.on("data", (data) => {
     console.log(data);
   });
 
-  // client.on('data', (data) => {
-  //   console.log(data.toString());
-  //   client.end();
-  // })
-
-  // client.on('end', () => {
-  //   console.log('disconnected from server');
-  // });
   return conn;
 };
 
-console.log("Connecting ...");
-connect();
+// console.log("Connecting ...");
+// connect();
+// removed connect(); since we're calling it from play.js
 
 module.exports = { connect };

@@ -1,9 +1,8 @@
-//const net = require("net");
 const { connect } = require("./client"); //get connect function from client.js
-const setupInput = require("./input"); //get setupInput function from input.js
+const { setupInput }  = require("./input"); //get setupInput function from input.js
 
-console.log("Also Connecting ..."); //doesnt seem to do anything, this works from client.js
-connect();
+console.log("Now Connecting to Snek Game ...");
 
-setupInput();
-
+const conn = connect();
+setupInput(conn);
+//because we're wanting to send the object that connect() creates on client.js into setupInput on input.js
